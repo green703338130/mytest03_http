@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--【需求】：点击按钮事件，改变message的值-->
+    <div id="app">
+        {{message}}<br>
+        <input type="button" value="改值" v-on:click="fun('传智播客')"/>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+            message:"你好 vue！"
+        },
+        methods:{ // 声明方法
+            fun:function (m) {
+               //vue.message = "你好，传智播客"
+                // this对象也表示vue对象
+                this.message = "你好，"+m
+            }
+        }
+    })
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<style>
+    #div{
+        background: red;
+    }
+</style>
+<body>
+    <!--【需求】：给指定区域大小的div中添加样式，鼠标移到div中，弹出窗口。
+【需求2】：在div中添加<textarea>，鼠标移动到<textarea>，再弹出一个窗口
+阻止外面事件的执行-->
+    <div id="app">
+        <div id="div" style="width: 60%;height: 80%" @mouseover="fun()">
+            12345
+            <textarea style="width: 50%;height: 50%" @mouseover="fun1($event)">
+                文本域
+            </textarea>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+
+        },
+        methods:{ // 声明方法
+            fun:function () {
+                alert("div的区域...")
+            },
+            fun1:function (e) {
+                alert("textarea的区域...");
+                // 阻止外部事件执行（阻止嵌套事件，或者冒泡事件）
+                e.stopPropagation();
+            }
+        }
+    })
+</script>

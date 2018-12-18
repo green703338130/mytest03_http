@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--【需求】：在vue中声明数据，在视图DOM中显示数据-->
+    <div id="app">
+        {{message}}<br>
+        {{message1+100+200}}<br>
+        {{message1>10?'OK':'不OK'}}
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+            message:"Hello World",
+            message1:20
+        },
+        methods:{ // 声明方法
+
+        }
+    })
+</script>

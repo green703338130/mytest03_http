@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--
+    2.6v-if与v-show
+    v-if是根据表达式的值来决定是否渲染元素
+    v-show是根据表达式的值来切换元素的display css属性
+demo12.html
+【需求】：使用vue赋值flag变量（boolean类型），用来判断<span>元素中的内容是否显示。-->
+    <div id="app">
+        <span v-if="flag">传智播客</span><br>
+        <span v-show="flag">黑马程序员</span><br>
+        <input type="button" value="切换" @click="fun()"/>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+            flag:true
+        },
+        methods:{ // 声明方法
+            fun:function () {
+                // 如果flag之前是true，改成false；如果是flase改成true
+                this.flag = !this.flag;
+            }
+        }
+    })
+</script>

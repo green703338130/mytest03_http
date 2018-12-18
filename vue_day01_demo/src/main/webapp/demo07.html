@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--
+    v-text：输出文本内容，不会解析html元素
+    v-html：输出文本内容，会解析html元素
+【需求】：使用message属性赋值“<h1>hello world</h1>”，查看页面输出内容。-->
+    <div id="app">
+        {{message}}<br>
+        <div v-text="message"></div><br>
+        <div v-html="message"></div><br>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+            message:"<h1>你好，helloworld</h1>"
+        },
+        methods:{ // 声明方法
+
+        }
+    })
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--【需求】：在表单中，点击“提交”按钮，阻止执行（.prevent）；在超链接中，点击url，阻止执行（.stop）-->
+    <div id="app">
+        <form @submit.prevent action="http://www.itcast.cn" method="post">
+            <input type="submit" value="提交"/>
+        </form>
+        <hr>
+        <div @click="fun1()">
+            <a @click.stop href="http://www.itheima.com">黑马程序员官网</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+
+        },
+        methods:{ // 声明方法
+            fun:function (e) {
+                e.preventDefault();// 阻止事件发生
+            },
+            fun1:function () {
+                alert("我是div！！！");
+            },
+            fun2:function (e) {
+                e.stopPropagation();//阻止上一层事件执行
+            }
+        }
+    })
+</script>

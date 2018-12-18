@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<script src="js/axios-0.18.0.js"></script>
+<body>
+    <!--【需求】：使用vue的ajax调用远程数据-->
+    <div id="app">
+
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+
+        },
+        methods:{ // 声明方法
+            init:function () {
+                axios.get("./data/person.json").then(function (response) {
+                    alert(response);
+                    console.log(response);
+                    alert(JSON.stringify(response.data));
+                    alert(response.data[0].username);
+                }).catch(function (error) {
+
+                })
+            }
+        },
+        created:function () {
+            // 调用ajax初始化页面列表，最合适不过的
+            this.init();
+        }
+    })
+</script>

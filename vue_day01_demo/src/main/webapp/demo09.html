@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--
+    2.4v-model
+用于读取数据。
+【需求】：使用vue赋值json数据，并显示到页面的输入框中（表单回显）。
+          点击提交按钮，改变json数据，验证同时输入框的内容也发生改变。-->
+    <div id="app">
+        姓名：<input type="text" v-model="person.name"><br>
+        年龄：<input type="text" v-model="person.age"><br>
+        家庭住址：<input type="text" v-model="person.addr"><br>
+        <input type="button" value="提交" @click="fun()"/>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+            person:{
+                name:"张三",
+                age:22,
+                addr:"北京"
+            }
+        },
+        methods:{ // 声明方法
+            fun:function () {
+                // 视图变化，模型也会变化
+                alert(this.person.name+"     "+this.person.age+"        "+this.person.addr);
+                // 模型变化，视图也会变化
+                this.person.name = "王五";
+                this.person.age = 24;
+                this.person.addr = "上海";
+
+            }
+        }
+    })
+</script>

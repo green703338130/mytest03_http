@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/vuejs-2.5.16.js"></script>
+<body>
+    <!--【需求】：在输入框中，如果输入回车键，就执行弹出窗口事件（可用于网页登录）。-->
+    <div id="app">
+        <input type="text" @keydown.enter="fun2()"/>
+    </div>
+</body>
+</html>
+
+<script>
+    var vue = new Vue({
+        el:"#app",// 表示vue程序的入口，el表示虚拟的DOM对象
+        data:{ // 声明变量（基本类型，json对象，json数组
+
+        },
+        methods:{ // 声明方法
+            fun:function (e) {
+                var keycode = e.keyCode;
+                if(keycode==13){
+                    alert("回车键！！！");
+                    // 提交表单 $("#form").submit();
+                }
+            },
+            fun2:function () {
+                alert("enter修饰符的回车键！！！");
+            }
+        }
+    })
+</script>
